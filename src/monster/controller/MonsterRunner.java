@@ -4,6 +4,7 @@ public class MonsterRunner
 {
 	public static void main(String[] args)
 	{
-		MonsterContoller myMonster = new MonsterController();
+		MonsterController myMonster = new MonsterController();
+		myMonster.start();
 	}
 }
