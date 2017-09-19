@@ -51,22 +51,22 @@ public class MonsterController
 		Scanner myScannerDeux = new Scanner(System.in);
 		int confuzzled = myScannerDeux.nextInt();
 		
-		if(confuzzled == 0)
-		{
-			System.out.println("You'll be starving in an hour, just you wait.");
-		}
-		else if(confuzzled < 0)
-		{
-			System.out.println("Dude. What friggin monster has negative arms.");
-		}
-		else if(confuzzled > currentMonster.getEyeCount())
-		{
-			System.out.println("That's too many. You're honestly pissing me off.");
-		}
-		else
-		{
-			currentMonster.setEyeCount(currentMonster.getEyeCount() - confuzzled);
-			System.out.println("Those better taste good. The poor monster only has " + currentMonster.getEyeCount() + " eyes left :(");
-		}
+//		if(confuzzled == 0)
+//		{
+//			System.out.println("You'll be starving in an hour, just you wait.");
+//		}
+//		else if(confuzzled < 0)
+//		{
+//			System.out.println("Dude. What friggin monster has negative arms.");
+//		}
+//		else if(confuzzled > currentMonster.getEyeCount())
+//		{
+//			System.out.println("That's too many. You're honestly pissing me off.");
+//		}
+//		else
+//		{
+//			currentMonster.setEyeCount(currentMonster.getEyeCount() - confuzzled);
+//			System.out.println("Those better taste good. The poor monster only has " + currentMonster.getEyeCount() + " eyes left :(");
+//		}
 	}
 }
