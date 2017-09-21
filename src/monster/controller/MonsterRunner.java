@@ -8,3 +8,5 @@ public class MonsterRunner
 		myMonster.start();
 	}
 }
+
+//Creates an instance of MonsterContoller in order to start the program.

@@ -15,6 +15,7 @@ public class MarshmallowMonster
 		//are a zero, false, or null.
 	}
 	
+	//Gives the MarshmallowMonster class parameters to be set later.
 	public MarshmallowMonster(String name, int eyeCount, int armCount, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
@@ -24,6 +25,7 @@ public class MarshmallowMonster
 		this.hasBloop = hasBloop;	
 	}
 	
+	//Sets the parameters and gets them too.
 	public String getName()
 	{
 		return name;
@@ -74,6 +76,7 @@ public class MarshmallowMonster
 		this.hasBloop = hasBloop;
 	}
 	
+	// Uses the values to create cohesive text.
 	public String toString()
 	{
 		String description = "Hi, I am a scary monster! My name is " + name + ", and I have " + eyeCount;

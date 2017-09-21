@@ -13,6 +13,7 @@ public class MonsterController
 		popup = new MonsterDisplay();
 	}
 	
+	//Experimental code dealing with popups and printlns.
 	public void start()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
@@ -31,6 +32,7 @@ public class MonsterController
 		interactWithTheMonster(realMonster);
 	}
 	
+	//Allowing interaction with monster through scanners and if statements to react to proper and improper inputs.
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
 //		System.out.println(currentMonster.getName() + " wants to know what to eat next");
@@ -38,17 +40,16 @@ public class MonsterController
 //		System.out.println(currentMonster.getName() + " suggests arms, they have " + currentMonster.getArmCount());
 		popup.displayText(currentMonster.getName() + " suggests arms, they have " + currentMonster.getArmCount());
 //		System.out.println("How many do you want to eat?");
-		int specialAnswer;
+		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
 		if(isValidInteger(unconverted))
 		{
 			specialAnswer = Integer.parseInt(unconverted);
 		}
-		
 		Scanner myScanner = new Scanner(System.in);
-		int consumed = myScanner.nextInt();
-		
+		int consumed = 0;
+		consumed = specialAnswer;
 		if(consumed < 0)
 		{
 			System.out.println("You cannot eat a negative amount silly human");
