@@ -16,21 +16,31 @@ public class MonsterController
 	public void start()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
-		System.out.println(sample);
+//		System.out.println(sample);
+		popup.displayText(sample.toString());
 		MarshmallowMonster realMonster = new MarshmallowMonster("Scary", 10, 3, 4.3, true);
-		System.out.println(realMonster);
-		System.out.println("Cody is hungry, so he is going to eat a tentacle");
+		
+//		System.out.println(realMonster);
+		popup.displayText(realMonster.toString());
+//		System.out.println("Cody is hungry, so he is going to eat a tentacle");
+		popup.displayText("I'm hungry, so I'm gonna eat a tentacle");
 		realMonster.setTentacleAmount(4.2);
-		System.out.println(realMonster);
+//		System.out.println(realMonster);
+		popup.displayText(realMonster.toString());
 		
 		interactWithTheMonster(realMonster);
 	}
 	
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 	{
-		System.out.println(currentMonster.getName() + " wants to know what to eat next");
-		System.out.println(currentMonster.getName() + " suggests arms, they have " + currentMonster.getArmCount());
-		System.out.println("How many do you want to eat?");
+//		System.out.println(currentMonster.getName() + " wants to know what to eat next");
+		popup.displayText(currentMonster.getName() + "wants to know what to eat next");
+//		System.out.println(currentMonster.getName() + " suggests arms, they have " + currentMonster.getArmCount());
+		popup.displayText(currentMonster.getName() + " suggests arms, they have " + currentMonster.getArmCount());
+//		System.out.println("How many do you want to eat?");
+		int specialAnswer;
+		String unconverted = popup.getResponse("How many do you want to eat?");
+		specialAnswer = Integer.parseInt(unconverted);
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 		
@@ -76,5 +86,10 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - confuzzled);
 			System.out.println("Those better taste good. The poor monster only has " + currentMonster.getEyeCount() + " eyes left :(");
 		}
+		
+		popup.displayText("Hey dude how are ya?!");
+		String answer = popup.getResponse("How many meals are you eating today?");
+		System.out.println(answer);
+		popup.displayText(answer);
 	}
 }
