@@ -40,7 +40,12 @@ public class MonsterController
 //		System.out.println("How many do you want to eat?");
 		int specialAnswer;
 		String unconverted = popup.getResponse("How many do you want to eat?");
-		specialAnswer = Integer.parseInt(unconverted);
+		
+		if(isValidInteger(unconverted))
+		{
+			specialAnswer = Integer.parseInt(unconverted);
+		}
+		
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = myScanner.nextInt();
 		
@@ -91,5 +96,56 @@ public class MonsterController
 		String answer = popup.getResponse("How many meals are you eating today?");
 		System.out.println(answer);
 		popup.displayText(answer);
+	}
+	
+	//Helper Methods
+	private boolean isValidInteger(String sample)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(sample);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only integer values are valid: " + sample + " is not");
+		}
+		return valid;
+	}
+	
+	private boolean isValidDouble(String sampleDouble)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			popup.displayText("Only double values are valid: " + sampleDouble + " is not.");
+		}
+		
+		return valid;
+	}
+	
+	private boolean isValidBoolean(String sampleBoolean) 
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only true and false are valid: " + sampleBoolean + " is not.");
+		}
+		
+		return valid;
 	}
 }
