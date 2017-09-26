@@ -16,6 +16,19 @@ public class MonsterController
 	//Experimental code dealing with popups and printlns.
 	public void start()
 	{
+		boolean finished = true;
+		int count = 0;
+//		while(count < 100)
+//		{
+//			popup.displayText("I am so neat!");
+//			count++;
+//		}
+		
+//		for (int loop = 0; loop < 15; loop += 1)
+//		{
+//			popup.displayText("I am looping " + (loop + 1) + " times out of 15.");
+//		}
+		
 		MarshmallowMonster sample = new MarshmallowMonster();
 //		System.out.println(sample);
 		popup.displayText(sample.toString());
@@ -43,10 +56,17 @@ public class MonsterController
 		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
-		if(isValidInteger(unconverted))
+		while(!isValidInteger(unconverted))
 		{
-			specialAnswer = Integer.parseInt(unconverted);
+			popup.displayText("Try again!");
+			unconverted = popup.getResponse("How many arms?????");
 		}
+		
+//		if(isValidInteger(unconverted))
+//		{
+			specialAnswer = Integer.parseInt(unconverted);
+//		}
+		
 		Scanner myScanner = new Scanner(System.in);
 		int consumed = 0;
 		consumed = specialAnswer;
