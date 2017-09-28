@@ -1,16 +1,20 @@
 package monster.controller;
 
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 import monster.model.MarshmallowMonster;
 import monster.view.MonsterDisplay;
 
 public class MonsterController
 {
 	private MonsterDisplay popup;
+	private List<MarshmallowMonster> monsterList;
 	
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 	
 	//Experimental code dealing with popups and printlns.
@@ -42,7 +46,30 @@ public class MonsterController
 //		System.out.println(realMonster);
 		popup.displayText(realMonster.toString());
 		
+		monsterList.add(realMonster);
+		monsterList.add(sample);
+		
 		interactWithTheMonster(realMonster);
+	}
+	
+	private void testList()
+	{
+		for(int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster = monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String newName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(newName);
+			popup.displayText(currentMonster.getName());
+		}
+		
+		for(MarshmallowMonster current : monsterList)
+		{
+			popup.displayText(current.getName());
+			String newName = popup.getResponse("What should my new new name be?");
+			current.setName(newName);
+			popup.displayText(current.getName());
+		}
 	}
 	
 	//Allowing interaction with monster through scanners and if statements to react to proper and improper inputs.
@@ -72,8 +99,7 @@ public class MonsterController
 		consumed = specialAnswer;
 		if(consumed < 0)
 		{
-			System.out.println("You cannot eat a negative amount silly human");
-			consumed = 0;
+			popup.displayText("You cannot eat a negative amount silly human.");
 		}
 		else if(consumed == 0)
 		{
